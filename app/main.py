@@ -4,7 +4,7 @@ from flask_pymongo import PyMongo, ObjectId
 from flask_cors import CORS
 
 # NOTE En CMD correr esto para iniciar el entorno virtual 
-# TODO Run .\venv\Scripts\activate.bat
+# TODO Run .\Scripts\activate.bat
 
 # NOTE user: sagalo Password: xvT2zg3OIcWftSQD
 
