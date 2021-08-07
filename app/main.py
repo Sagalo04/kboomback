@@ -41,7 +41,6 @@ def getUser(user):
     point = db.find_one({'user': user})
     return jsonify({
         '_id': str(ObjectId(point['_id'])),
-        'user': str(ObjectId(point['user'])),
         'dataY': point['dataY'],
         'dataX': point['dataX']
     })
