@@ -7,7 +7,8 @@ from flask_cors import CORS
 # TODO Run .\Scripts\activate.bat
 
 # NOTE user: sagalo Password: xvT2zg3OIcWftSQD
-
+#
+#
 
 # ANCHOR Instancia 
 app = Flask(__name__)
