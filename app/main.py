@@ -25,12 +25,13 @@ db = mongo.db.points
 @app.route('/points', methods=['POST'])
 def createPoint():
     try:
-        point = db.find_one_and_update({'user': request.json['user']},{'$set':{'dataY': request.json['dataY'], 'dataX': request.json['dataX']}})
+        point = db.find_one_and_update({'user': request.json['user']},{'$set':{'dataYx': request.json['dataYx'],'dataYv': request.json['dataYv'], 'dataX': request.json['dataX']}})
         return (str(ObjectId(point['_id']))) 
     except:
         id = db.insert({
             'user': request.json['user'],
-            'dataY': request.json['dataY'],
+            'dataYx': request.json['dataYx'],
+            'dataYv': request.json['dataYv'],
             'dataX': request.json['dataX']
         })
         return (str(ObjectId(id))) 
@@ -42,7 +43,8 @@ def getUser(user):
     point = db.find_one({'user': user})
     return jsonify({
         '_id': str(ObjectId(point['_id'])),
-        'dataY': point['dataY'],
+        'dataYx': point['dataYx'],
+        'dataYv': point['dataYv'],
         'dataX': point['dataX']
     })
 
