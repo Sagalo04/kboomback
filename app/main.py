@@ -25,14 +25,20 @@ db = mongo.db.points
 @app.route('/points', methods=['POST'])
 def createPoint():
     try:
-        point = db.find_one_and_update({'user': request.json['user']},{'$set':{'dataYx': request.json['dataYx'],'dataYv': request.json['dataYv'], 'dataX': request.json['dataX']}})
+        point = db.find_one_and_update({'user': request.json['user']},{'$set':{'dataYx': request.json['dataYx'],'dataYv': request.json['dataYv'], 'dataX': request.json['dataX'],'dataYxm2': request.json['dataYxm2'],'dataYvm2': request.json['dataYvm2'], 'dataXm2': request.json['dataXm2'],'dataYxm3': request.json['dataYxm3'],'dataYvm3': request.json['dataYvm3'], 'dataXm3': request.json['dataXm3']}})
         return (str(ObjectId(point['_id']))) 
     except:
         id = db.insert({
             'user': request.json['user'],
             'dataYx': request.json['dataYx'],
             'dataYv': request.json['dataYv'],
-            'dataX': request.json['dataX']
+            'dataX': request.json['dataX'],
+            'dataYxm2': request.json['dataYxm2'],
+            'dataYvm2': request.json['dataYvm2'],
+            'dataXm2': request.json['dataXm2'],
+            'dataYxm3': request.json['dataYxm3'],
+            'dataYvm3': request.json['dataYvm3'],
+            'dataXm3': request.json['dataXm3']
         })
         return (str(ObjectId(id))) 
 
@@ -45,7 +51,13 @@ def getUser(user):
         '_id': str(ObjectId(point['_id'])),
         'dataYx': point['dataYx'],
         'dataYv': point['dataYv'],
-        'dataX': point['dataX']
+        'dataX': point['dataX'],
+        'dataYxm2': point['dataYxm2'],
+        'dataYvm2': point['dataYvm2'],
+        'dataXm2': point['dataXm2'],
+        'dataYxm3': point['dataYxm3'],
+        'dataYvm3': point['dataYvm3'],
+        'dataXm3': point['dataXm3'],
     })
 
 # ANCHOR GetPoints
